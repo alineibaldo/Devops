@@ -11,20 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout do repositório
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
+      # 3️⃣ Instalar dependências
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
+      # 4️⃣ Rodar build
       - name: Run build
         run: npm run build
 
+      # 5️⃣ Rodar testes
       - name: Run tests
-        run: npm test
+        run: npx jest --coverage
+
 
