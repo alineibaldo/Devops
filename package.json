@@ -1,5 +1,5 @@
 {
-  "name": "devops-fase1-node",
+  "name": "devops-projeto-fase-1",
   "version": "1.0.0",
   "description": "Projeto Node.js Fase 1 DevOps - API de usuários",
   "main": "src/app.js",
