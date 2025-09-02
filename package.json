@@ -7,8 +7,9 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "build": "echo 'Build completo!'",
-    "test": "jest --coverage"
+    "test": "npx jest --coverage"
   },
+
   "author": "Aline Goncalves",
   "license": "MIT",
   "dependencies": {
