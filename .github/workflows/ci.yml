@@ -1,4 +1,4 @@
-name: Node.js CI Pipeline
+name: Node.js CI/CD Pipeline
 
 on:
   push:
@@ -11,26 +11,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout do repositório
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # 3️⃣ Instalar dependências
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Rodar build
       - name: Run build
         run: npm run build
 
-      # 5️⃣ Rodar testes
       - name: Run tests
-        run: npx jest --coverage
+        run: npm test
 
+  deploy:
+    needs: build-and-test   # Só roda se o build e os testes passarem
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'  # Só roda na branch main
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Simulação de Deploy
+        run: |
+          echo "Iniciando deploy..."
+          echo "Aplicação Node.js foi entregue com sucesso no ambiente de staging!"
 
