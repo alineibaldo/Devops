@@ -43,8 +43,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push Docker image
         run: |
-          docker build -t alineibaldo/devops-fase2:latest .
-          docker push alineibaldo/devops-fase2:latest
+          docker build -t alineibaldo1/devops-fase2:latest .
+          docker push alineibaldo1/devops-fase2:latest
       - name: Deploy to staging
         run: |
           echo "Imagem publicada no Docker Hub com sucesso!"
