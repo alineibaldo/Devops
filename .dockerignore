@@ -5,3 +5,5 @@ tests
 *.md
 *.log
 coverage
+.vscode
+.env
